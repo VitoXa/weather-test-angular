@@ -1,9 +1,17 @@
 <mat-card appearance="outlined" class="conditions-card">
     @if (conditions && currentLocation ) {
     <mat-card-header>
-        <mat-card-title>{{currentLocation.LocalizedName}}</mat-card-title>
+        <mat-card-title>
+            @if (showFavoriteButton) {
+            <button mat-button aria-label="Example icon button with a menu icon" class="mx-2"
+                (click)="toggleFavoriteLocation()">
+                <mat-icon>{{(isFavorite| async) ? 'favorite': 'favorite_outline'}}</mat-icon>
+            </button>
+            }
+            {{currentLocation.LocalizedName}}
+        </mat-card-title>
         <mat-card-subtitle>
-            <span>{{ conditions.WeatherText }}</span> 
+            <span>{{ conditions.WeatherText }}</span>
             {{' '}}
             <span>{{ conditions.Temperature.Metric.Value }}</span>
             <span>{{ conditions.Temperature.Metric.Unit }}</span>

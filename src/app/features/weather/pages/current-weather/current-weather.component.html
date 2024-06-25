@@ -2,10 +2,14 @@
     <app-current-conditions [locationKey]="homeLocationKey"></app-current-conditions>
 </section>
 <section class="my-8">
-    <app-location-selector (onLocationSelected)="navigateToLocation($event)"></app-location-selector>
-</section>
-<section class="my-8">
     <app-five-days-forecast [locationKey]="homeLocationKey">
 
     </app-five-days-forecast>
+</section>
+<section class="my-8">
+    <h2>Go to location</h2>
+    <app-location-selector (onLocationSelected)="navigateToLocation($event)"></app-location-selector>
+</section>
+<section  class="my-8">
+    <h2>Favorites</h2>
 </section>

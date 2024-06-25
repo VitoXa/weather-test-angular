@@ -14,11 +14,21 @@ export class FavoriteLocationService {
         this.loadFavoriteLocations();
     }
 
-    addFavoriteLocation(favoriteLocation: string): void {
-        this.favorites.slice(-4).push(favoriteLocation);
-        this.save();
-        this.favoritesSubject.next(this.favorites);
+    toggleFavoriteLocation(favoriteLocation: string): void {
+        if (this.favorites.indexOf(favoriteLocation) > -1) {
+            this.favorites = this.favorites.filter(f => f !== favoriteLocation);
+            this.save();
+        } else {
+            this.addFavoriteLocation(favoriteLocation);
+        }
     }
+
+    addFavoriteLocation(favoriteLocation: string): void {
+        this.favorites = this.favorites.slice(-4);
+        this.favorites.push(favoriteLocation);
+        this.save();
+    }
+
 
     getFavoriteLocations(): string[] {
         return this.favorites;
@@ -37,5 +47,6 @@ export class FavoriteLocationService {
 
     private save(): void {
         localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.favorites));
+        this.favoritesSubject.next(this.favorites);
     }
 }
