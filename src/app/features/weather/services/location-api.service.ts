@@ -8,9 +8,20 @@ import { LocationInfo } from '../models/location-info';
   providedIn: 'root'
 })
 export class LocationApiService {
-  
+
   constructor(private readonly http: HttpClient) { }
 
+  getLocationSuggestions(cityName: string): Observable<LocationInfo[]> {
+    let params = new HttpParams();
+
+    params = params.set('apikey', environment.apiKey);
+    params = params.set('q', cityName);
+
+    return this.http
+      .get<LocationInfo[]>(`http://dataservice.accuweather.com/locations/v1/cities/autocomplete`, {
+        params
+      });
+  }
 
   getLocation(locationKey: string): Observable<LocationInfo> {
     let params = new HttpParams();

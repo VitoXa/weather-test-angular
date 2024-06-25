@@ -1,1 +1,12 @@
-<p>location-selector works!</p>
+<mat-form-field class="example-full-width">
+    <mat-label>Location</mat-label>
+    <input matInput aria-label="State" [matAutocomplete]="auto" [formControl]="autocompleteCtrl">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)" [displayWith]="displayProperty">
+        @for (loc of filteredLocations | async; track loc.Key) {
+        <mat-option [value]="loc">
+            <span>{{loc.LocalizedName}}</span> |
+            <small> ({{loc.Country.ID}})</small>
+        </mat-option>
+        }
+    </mat-autocomplete>
+</mat-form-field>

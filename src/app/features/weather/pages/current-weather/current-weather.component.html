@@ -1,3 +1,6 @@
-<section>
+<section class="my-8">
     <app-current-conditions [locationKey]="homeLocationKey"></app-current-conditions>
+</section>
+<section class="my-8">
+    <app-location-selector (onLocationSelected)="navigateToLocation($event)"></app-location-selector>
 </section>
