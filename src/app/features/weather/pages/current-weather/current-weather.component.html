@@ -10,6 +10,11 @@
     <h2>Go to location</h2>
     <app-location-selector (onLocationSelected)="navigateToLocation($event)"></app-location-selector>
 </section>
-<section  class="my-8">
+<section class="my-8">
     <h2>Favorites</h2>
+    @for (favoriteLocation of favoriteLocations | async; track favoriteLocation) {
+    <app-current-conditions class="my-2" [locationKey]="favoriteLocation"
+        [showFavoriteButton]="true"></app-current-conditions>
+    }
+
 </section>
