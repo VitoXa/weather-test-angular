@@ -6,11 +6,12 @@ import { CurrentConditions } from '../../models/current-conditions';
 import { LocationInfo } from '../../models/location-info';
 import { CurrentConditionsApiService } from '../../services/current-conditions-api.service';
 import { LocationApiService } from '../../services/location-api.service';
+import { IconUrlPipe } from '../../pipes/icon-url.pipe';
 
 @Component({
   selector: 'app-current-conditions',
   standalone: true,
-  imports: [MatCardModule, NgIf, AsyncPipe],
+  imports: [MatCardModule, NgIf, AsyncPipe, IconUrlPipe],
   templateUrl: './current-conditions.component.html',
   styleUrl: './current-conditions.component.css'
 })

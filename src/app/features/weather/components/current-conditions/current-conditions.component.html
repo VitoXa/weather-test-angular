@@ -9,7 +9,7 @@
             <span>{{ conditions.Temperature.Metric.Unit }}</span>
         </mat-card-subtitle>
         <!-- Add any other header content (e.g., subtitle, avatar) -->
-        <img mat-card-md-image class="weather-icon" src="https://developer.accuweather.com/sites/default/files/01-s.png"
+        <img mat-card-md-image class="weather-icon" src="{{ conditions.WeatherIcon | iconUrl }}"
             alt="{{conditions.WeatherText}}">
     </mat-card-header>
     <mat-card-content>
