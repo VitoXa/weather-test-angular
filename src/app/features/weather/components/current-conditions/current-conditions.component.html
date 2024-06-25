@@ -1,1 +1,22 @@
-<p>current-conditions works!</p>
+<mat-card appearance="outlined" class="conditions-card">
+    @if (conditions && currentLocation ) {
+    <mat-card-header>
+        <mat-card-title>{{currentLocation.LocalizedName}}</mat-card-title>
+        <mat-card-subtitle>
+            <span>{{ conditions.WeatherText }}</span> 
+            {{' '}}
+            <span>{{ conditions.Temperature.Metric.Value }}</span>
+            <span>{{ conditions.Temperature.Metric.Unit }}</span>
+        </mat-card-subtitle>
+        <!-- Add any other header content (e.g., subtitle, avatar) -->
+        <img mat-card-md-image class="weather-icon" src="https://developer.accuweather.com/sites/default/files/01-s.png"
+            alt="{{conditions.WeatherText}}">
+    </mat-card-header>
+    <mat-card-content>
+    </mat-card-content>
+    }
+    @else {
+    loading...
+    }
+
+</mat-card>
