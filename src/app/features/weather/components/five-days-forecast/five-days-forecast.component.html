@@ -1,1 +1,40 @@
-<p>five-days-forecast works!</p>
+<mat-card>
+
+    @if(forecast | async; as f) {
+
+    <mat-card-header>
+        <mat-card-title>Five Days Forecast</mat-card-title>
+        <mat-card-subtitle>
+            {{f.Headline.Text}}
+        </mat-card-subtitle>
+
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="flex flex-row space-x-2">
+            @for (dailyF of f.DailyForecasts; track dailyF.Date ) {
+            <mat-card class="my-4">
+                <mat-card-header>
+                    {{dailyF.Date | date : 'MMM d, y'}}
+                </mat-card-header>
+                <mat-card-content>
+                    <div>
+                        <div>
+                            <img mat-card-md-image class="weather-icon" src="{{ dailyF.Day.Icon | iconUrl }}"
+                                alt="{{dailyF.Day.IconPhrase}}">
+                        </div>
+                        <div>
+                            <p>{{dailyF.Temperature.Minimum.Value}} - {{dailyF.Temperature.Maximum.Value}} C</p>
+                        </div>
+                    </div>
+
+                </mat-card-content>
+            </mat-card>
+            }
+        </div>
+    </mat-card-content>
+    }
+    @else {
+    loading...
+    }
+</mat-card>

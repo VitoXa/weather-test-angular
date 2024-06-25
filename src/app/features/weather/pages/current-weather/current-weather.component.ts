@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CurrentConditionsComponent } from '../../components/current-conditions/current-conditions.component';
 import { LocationSelectorComponent } from '../../components/location-selector/location-selector.component';
+import { FiveDaysForecastComponent } from '../../components/five-days-forecast/five-days-forecast.component';
 
 @Component({
   selector: 'app-current-weather',
   standalone: true,
-  imports: [CurrentConditionsComponent, LocationSelectorComponent],
+  imports: [CurrentConditionsComponent, LocationSelectorComponent, FiveDaysForecastComponent],
   templateUrl: './current-weather.component.html',
   styleUrl: './current-weather.component.css'
 })

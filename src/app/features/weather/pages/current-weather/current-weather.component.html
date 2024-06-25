@@ -4,3 +4,8 @@
 <section class="my-8">
     <app-location-selector (onLocationSelected)="navigateToLocation($event)"></app-location-selector>
 </section>
+<section class="my-8">
+    <app-five-days-forecast [locationKey]="homeLocationKey">
+
+    </app-five-days-forecast>
+</section>
