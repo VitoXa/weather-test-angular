@@ -1,4 +1,5 @@
-<p>location works!</p>
+@if (locationKey) {
 <section>
-  <h3>{{locationCode}}</h3>
+    <app-current-conditions [locationKey]="locationKey"></app-current-conditions>
 </section>
+}
